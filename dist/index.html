@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF‑8" /><meta name="viewport" content="width=device‑width, initial‑scale=1" />
+  <title>Your Tutoring & Grant Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* Base Reset & Typography */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Work Sans', sans-serif;
+      background: #f2e9e4;
+      color: #4a3c31;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    section { scroll-margin-top: 70px; } /* avoids sticky nav overlap */
+
+    /* Sticky, minimal navbar */
+    nav {
+      position: sticky; top: 0;
+      background: #fffccccc;
+      backdrop-filter: saturate(180%) blur(10px);
+      display: flex; justify-content: center;
+      padding: 0.4rem;
+      font-weight: 600;
+      z-index: 1000;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #4a3c31;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #0a9396; }
+
+    /* Section headings with animation */
+    h2.section-title {
+      font-size: 2.2rem; color: #3c2f2f;
+      margin-bottom: 1rem; opacity: 0;
+      transform: scale(0.95);
+      animation: fadeIn 0.8s ease forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; transform: scale(1); } }
+
+    /* Flex layout for content sections */
+    .flex-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 3rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .flex-text {
+      flex: 1;
+      padding: 2rem;
+      background: #fff7f2;
+      border-radius: 20px;
+      box-shadow: 0 8px 18px rgba(234,106,71,0.25);
+    }
+    .flex-text:hover { box-shadow: 0 14px 30px rgba(234,106,71,0.35); }
+    .flex-image {
+      flex: 1;
+      max-width: 300px;
+      height: auto;
+    }
+
+    /* Specific Section Styles */
+    #tutoring .flex-text {
+      background: #0a9396;
+      color: #f0f6f6;
+    }
+    #tutoring ul { list-style: none; padding: 0; }
+    #tutoring ul li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+    #tutoring ul li::before {
+      content: "✔";
+      position: absolute; left: 0;
+      color: #94d2bd;
+    }
+
+    #kids .flex-text {
+      background: #f4b382;
+      color: #4a2e0b;
+      font-family: 'Comic Sans MS', cursive;
+      position: relative;
+    }
+    #kids .flex-text::before,
+    #kids .flex-text::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      pointer-events: none;
+    }
+    #kids .flex-text::before {
+      width: 120px; height: 120px; top: -30px; right: -40px; transform: rotate(25deg);
+    }
+    #kids .flex-text::after {
+      width: 80px; height: 80px; bottom: -20px; left: -30px;
+    }
+
+    #grants .flex-text {
+      background: #ede6e1;
+      color: #4a3c31;
+    }
+
+    /* Contact CTA */
+    #contact {
+      text-align: center; padding: 2rem 1rem;
+    }
+    #contact h2 { font-size: 1.9rem; color: #ea6a47; margin-bottom: 1rem; }
+    #contact .button {
+      background: #0a9396;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(10,147,150,0.4);
+      transition: background 0.3s;
+    }
+    #contact .button:hover { background: #94d2bd; }
+
+    /* Reviews with avatars */
+    #reviews {
+      max-width: 700px;
+      margin: 3rem auto 4rem;
+      text-align: center;
+    }
+    #reviews h2 { font-size: 2rem; color: #ea6a47; margin-bottom: 1.5rem; }
+    .review {
+      background: #f8f4f0;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .review img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    /* Trivia Quiz */
+    #quiz {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff7f2;
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: left;
+    }
+    #quiz h3 { color: #ea6a47; margin-bottom: 1rem; }
+    #quiz button {
+      background: #0a9396;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #quiz button:hover { background: #94d2bd; }
+    #quiz .feedback { margin-top: 1rem; font-weight: 600; }
+
+    @media (max-width: 800px) {
+      .flex-section { flex-direction: column; }
+      nav { flex-direction: row; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+ <nav id="topnav">
+  <a href="#tutoring">Tutoring</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="#quiz">Quick Quiz</a>
+</nav>
+
+  <section id="welcome" style="height:350px; background:url('https://i.postimg.cc/Df6vPL7c/88129176-3-A89-4-F25-8-C2-E-1-E5252-B7-E506-1-105-c.jpg')center/cover fixed no-repeat; display:flex; align-items:center; justify-content:center; color:white; font-size:3.4rem; text-shadow:2px 2px 5px rgba(0,0,0,0.8); text-align:center;">
+    <span>Learning With Purpose</span>
+  </section>
+
+  <section id="about" style="max-width: 800px; margin: 3rem auto 0; padding: 0 1.5rem; text-align: center;">
+  <h2 class="section-title">What’s It All About?</h2>
+  <p style="font-size: 1.15rem; font-weight: 500; line-height: 1.6;">
+    In a nutshell, I bring a global perspective as an educator, tutor, and strategic planner—over 10 years around the world, with a BSc in sciences and a love for the outdoors.
+    <br><br>
+    My mission? Helping students shine and making education an exciting journey.
+  </p>
+</section>
+
+  <div class="divider"></div>
+
+ <!-- Tutoring Services Section -->
+<section class="flex-section" id="tutoring">
+  <div class="flex-text">
+    <h2 class="section-title">Helping Students Shine</h2>
+    <p>Over 5,000 hours of online teaching experience, plus extensive in-class and outdoor education worldwide.</p>
+    <p>I offer personalised tutoring and curriculum development for all ages, with a focus on confidence-building and exam success.</p>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem;">
+      <!-- Subject List -->
+      <ul style="list-style: none; padding: 0; margin: 0; flex: 1;">
+        <li>✅ English Language & Literature</li>
+        <li>✅ Foundation & Higher Maths</li>
+        <li>✅ Biology, Chemistry, Physics</li>
+        <li>✅ Geography</li>
+      </ul>
+      
+      <!-- Qualifications and Boards -->
+      <ul style="list-style: none; padding: 0; margin: 0; flex: 1;">
+        <li>✅ IGCSE / GCSE</li>
+        <li>✅ A-Level & IB</li>
+        <li>✅ AQA, Edexcel, CAIE & more</li>
+        <li>✅ Homeschooling</li>
+      </ul>
+    </div>
+
+    <p style="margin-top: 1.5rem;">Contact me for more information and tailored support across your learning journey.</p>
+  </div>
+
+  <img 
+    src="https://i.postimg.cc/nhyph11n/path20-Photoroom.png" 
+    alt="Abstract art" 
+    style="width: 300px; height: auto; background: transparent;"
+  />
+</section>
+
+
+  <div class="divider"></div>
+
+  <section class="flex-section" id="kids">
+    <img src="https://i.postimg.cc/c4tzLGk8/IMG-2777-2-JPG-Photoroom-1.png" alt="Abstract Art" class="flex-image"/>
+    <div class="flex-text">
+      <h2 class="section-title">Your Learning Journey</h2>
+      <p>Looking to build confidence, ace those tests and master your subjects? <br> <b>You’re in the right place.</b> <br> We support you realise your full potential and develop a love of learning.</p>
+      <ul>
+        <li>Fun, interactive courses</li>
+        <li>Crash courses & exam support</li>
+        <li>A confidence-building approach</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="flex-section" id="grants">
+    <div class="flex-text">
+      <h2 class="section-title">Grant Writing & Reports</h2>
+      <p>Over a decade of experience supporting NGOs with comprehensive report writing, rigorous research methodologies, and successful grant acquisition. Authored and secured five competitive grant proposals. Served as a published editor for University of Washington educational publications.</p>
+<p>Expertise in conducting research and preparing detailed reports under stringent deadlines, with a steadfast commitment to community-centered outcomes and approaches.</p>
+    </div>
+    <img src="https://i.postimg.cc/Pq6WsPHs/path1.png" alt="Abstract Art" class="flex-image"/>
+  </section>
+
+ <section id="contact">
+  <h2 class="section-title">Get In Touch</h2>
+  <p>Ready to learn more or register your interest in tutoring, courses, or grants? Click below.</p>
+  <a href="https://forms.gle/4SBSShimpAuxVSJ5A" target="_blank" class="button">Register Your Interest</a>
+</section>
+
+<section id="reviews">
+  <h2 class="section-title">What Clients & Students Say</h2> 
+
+  <div class="review">
+    <div>
+      <strong>Lara C.</strong> <small>January 2025</small><br>
+      <span class="stars">★★★★★</span><br>
+      <em>I've had a number of lessons with Zan for my A level Geography and found her really helpful and patient. She's helped me focus on the modules I was struggling with and build my confidence in these areas. I would 100% recommend Zan.</em>
+    </div>
+  </div>
+
+  <div class="review">
+    <div>
+      <strong>Suman C.</strong> <small>October 2024</small><br>
+      <span class="stars">★★★★★</span><br>
+      <em>Zan was so helpful and really helped boost my child’s confidence! Thank you so much!</em>
+    </div>
+  </div>
+
+  <div class="review">
+    <div>
+      <strong>Ashton A.</strong> <small>October 2023</small><br>
+      <span class="stars">★★★★★</span><br>
+      <em>So impressed on how much my daughter’s grades have come on. She has jumped 3 grades and now just missing a few marks off a 9. Amazing teacher.</em>
+    </div>
+  </div>
+</section>
+
+  <div id="quiz">
+    <h3>Quick Teen Trivia!</h3>
+    <div id="questions"></div>
+    <button onclick="checkQuiz()">Check Answers</button>
+    <div class="feedback" id="feedback"></div>
+  </div>
+
+  <script>
+    const questions = [
+      {q:"What's the tallest mountain in the world?", a:["K2", "Everest", "Kilimanjaro", "Denali"], c:1},
+      {q:"What is the capital of England?", a:["Edinburgh","London","Cardiff","Belfast"], c:1},
+      {q:"About how many species of shark exist?", a:["100","500","1000","5000"], c:2},
+      {q:"Which element has the chemical symbol 'O'?", a:["Gold","Oxygen","Silver","Iron"], c:1},
+      {q:"Which planet is known as the Red Planet?", a:["Earth","Mars","Jupiter","Venus"], c:1}
+    ];
+    const qDiv = document.getElementById("questions");
+    questions.forEach((o,i) => {
+      const div = document.createElement("div");
+      div.innerHTML = `<p><b>${o.q}</b></p>` + 
+        o.a.map((opt,j) => `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`).join("");
+      qDiv.appendChild(div);
+    });
+    function checkQuiz(){
+      let score = 0;
+      questions.forEach((o,i) => {
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        if (sel && Number(sel.value) === o.c) score++;
+      });
+      document.getElementById("feedback").textContent = `You got ${score}/${questions.length}!`;
+    }
+  </script>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
